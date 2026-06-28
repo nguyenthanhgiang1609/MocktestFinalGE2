@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GENERAL ENGLISH 2 - FINAL EXAMINATION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .info-section {
+            background: #eef2f7;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+        .info-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .info-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .part-section {
+            margin-bottom: 40px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        .part-title {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 0;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px dashed #ddd;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .reading-box {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .word-bank {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .prompt-box {
+            background: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .prompt-box ul {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 20px;
+        }
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .rubric-table th, .rubric-table td {
+            border: 1px solid #cbd5e1;
+            padding: 8px;
+            text-align: left;
+        }
+        .rubric-table th {
+            background-color: #f1f5f9;
+        }
+        textarea {
+            width: 100%;
+            height: 220px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #219653;
+        }
+        #result-area {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 6px;
+            display: none;
+        }
+        .explanation {
+            background: #fadbd8;
+            color: #78281f;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            display: none;
+            border-left: 3px solid #cd6155;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>GENERAL ENGLISH 2 — FINAL EXAMINATION</h1>
+    
+    <div class="info-section">
+        <p><strong>📋 Instructions:</strong> This exam has multiple parts. Read each part carefully before answering. Time allowed: 60 minutes.</p>
+        <div class="info-group">
+            <div>
+                <label>Full Name: <span style="color:red">*</span></label>
+                <input type="text" id="student-name" required placeholder="Nhập họ và tên...">
+            </div>
+            <div>
+                <label>Student ID: <span style="color:red">*</span></label>
+                <input type="text" id="student-id" required placeholder="Nhập mã số sinh viên...">
+            </div>
+        </div>
+        <div class="info-group">
+            <div>
+                <label>Class:</label>
+                <input type="text" id="student-class" placeholder="Nhập lớp...">
+            </div>
+            <div>
+                <label>Date:</label>
+                <input type="date" id="exam-date">
+            </div>
+        </div>
+    </div>
+
+    <form id="quiz-form" onsubmit="submitExam(event)">
+        
+        <!-- PART 1: LISTENING -->
+        <div class="part-section">
+            <h2 class="part-title">PART 1: LISTENING COMPREHENSION</h2>
+            
+            <h3>Section 1: Audio 1</h3>
+            <audio controls style="width: 100%; max-width: 400px; margin-bottom: 15px;">
+    <source src="https://drive.google.com/file/d/1x65yCySw0QlxpSyH9qqb3-8H6ifp8rIj/view?usp=sharing" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát âm thanh.
+</audio>
+            <div class="question" data-q="L1">
+                <p><strong>1. What was Hurricane Carol?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="L1" value="A"> A. A storm</label>
+                    <label><input type="radio" name="L1" value="B"> B. A mountain</label>
+                    <label><input type="radio" name="L1" value="C"> C. A river</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. Theo nội dung bài nghe, Hurricane Carol là tên của một cơn bão (storm).</div>
+            </div>
+
+            <div class="question" data-q="L2">
+                <p><strong>2. What was the weather like during the storm?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="L2" value="A"> A. Cold and snowy</label>
+                    <label><input type="radio" name="L2" value="B"> B. Hot and sunny</label>
+                    <label><input type="radio" name="L2" value="C"> C. Windy and rainy</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Khi có bão (storm), thời tiết điển hình thường là có gió lớn và mưa nhiều (windy and rainy).</div>
+            </div>
+
+            <div class="question" data-q="L3">
+                <p><strong>3. What is the eye of the storm?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="L3" value="A"> A. The end of the storm</label>
+                    <label><input type="radio" name="L3" value="B"> B. The strongest part of the storm</label>
+                    <label><input type="radio" name="L3" value="C"> C. The center of the storm</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. "The eye of the storm" là một thuật ngữ chỉ tâm bão (the center of the storm).</div>
+            </div>
+
+            <div class="question" data-q="L4">
+                <p><strong>4. What did Grandpa see when he went outside?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="L4" value="A"> A. The moon</label>
+                    <label><input type="radio" name="L4" value="B"> B. The sun</label>
+                    <label><input type="radio" name="L4" value="C"> C. A rainbow</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Khi đi ra ngoài vào lúc tâm bão đi qua (thường trời sẽ quang đãng tạm thời), ông đã nhìn thấy mặt trời (the sun).</div>
+            </div>
+
+            <div class="question" data-q="L5">
+                <p><strong>5. What happened after the storm?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="L5" value="A"> A. The family had no electricity for a week.</label>
+                    <label><input type="radio" name="L5" value="B"> B. The family moved to another country.</label>
+                    <label><input type="radio" name="L5" value="C"> C. The family bought a new house.</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. Hậu quả sau cơn bão lớn là gia đình đã bị mất điện suốt một tuần (had no electricity for a week).</div>
+            </div>
+
+            <h3>Section 2: Audio 2</h3>
+            <audio controls style="width: 100%; max-width: 400px; margin-bottom: 15px;">
+    <source src="https://drive.google.com/file/d/1k4I1gIexFYuxU9ccWdCOmwvNHv8M0gZ4/view?usp=sharing" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát âm thanh.
+</audio>
+            <p><em>Complete the sentences. Write ONE word for each answer.</em></p>
+            
+            <div class="question" data-q="L6">
+                <p>6. Good architecture helps people meet and <input type="text" name="L6" style="width:120px;"> to other people.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "talk". Cấu trúc "meet and talk to other people" (gặp gỡ và trò chuyện với người khác).</div>
+            </div>
+            <div class="question" data-q="L7">
+                <p>7. Ms. Patel says a healthy city should use clean <input type="text" name="L7" style="width:120px;">.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "energy". Cụm từ "clean energy" có nghĩa là năng lượng sạch.</div>
+            </div>
+            <div class="question" data-q="L8">
+                <p>8. Mr. Mui's neighborhood has paths for biking and <input type="text" name="L8" style="width:120px;">.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "walking". Cấu trúc song hành với "biking" (đạp xe) ở đây là "walking" (đi bộ).</div>
+            </div>
+            <div class="question" data-q="L9">
+                <p>9. The local farmer's market sells inexpensive fruits and <input type="text" name="L9" style="width:120px;">.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "vegetables". Cụm từ quen thuộc đi cùng nhau là "fruits and vegetables" (trái cây và rau củ).</div>
+            </div>
+            <div class="question" data-q="L10">
+                <p>10. People asked the local government for more bike lanes and a modern <input type="text" name="L10" style="width:120px;">.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "hospital". Người dân yêu cầu làn đường cho xe đạp và một bệnh viện hiện đại (modern hospital).</div>
+            </div>
+        </div>
+
+        <!-- PART 2: VOCABULARY -->
+        <div class="part-section">
+            <h2 class="part-title">PART 2: VOCABULARY (Questions 1–15)</h2>
+            <p><em>Choose the best word (A, B, C, or D) to complete each sentence.</em></p>
+
+            <div class="question" data-q="V1">
+                <p><strong>1. Many companies want employees who can ______ quickly to new technology.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V1" value="A"> A. predict</label>
+                    <label><input type="radio" name="V1" value="B"> B. adapt</label>
+                    <label><input type="radio" name="V1" value="C"> C. suggest</label>
+                    <label><input type="radio" name="V1" value="D"> D. reduce</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Cấu trúc "adapt to" có nghĩa là thích nghi với (công nghệ mới).</div>
+            </div>
+
+            <div class="question" data-q="V2">
+                <p><strong>2. Our marketing team is planning a new advertising ______ for next month.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V2" value="A"> A. campaign</label>
+                    <label><input type="radio" name="V2" value="B"> B. weather</label>
+                    <label><input type="radio" name="V2" value="C"> C. material</label>
+                    <label><input type="radio" name="V2" value="D"> D. routine</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. Cụm từ "advertising campaign" có nghĩa là chiến dịch quảng cáo.</div>
+            </div>
+
+            <div class="question" data-q="V3">
+                <p><strong>3. The weather ______ says it will rain this afternoon.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V3" value="A"> A. forecast</label>
+                    <label><input type="radio" name="V3" value="B"> B. flood</label>
+                    <label><input type="radio" name="V3" value="C"> C. drought</label>
+                    <label><input type="radio" name="V3" value="D"> D. temperature</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. Cụm từ "weather forecast" nghĩa là dự báo thời tiết.</div>
+            </div>
+
+            <div class="question" data-q="V4">
+                <p><strong>4. Many people now use ______ bags instead of plastic ones to protect the environment.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V4" value="A"> A. reusable</label>
+                    <label><input type="radio" name="V4" value="B"> B. harmful</label>
+                    <label><input type="radio" name="V4" value="C"> C. expensive</label>
+                    <label><input type="radio" name="V4" value="D"> D. modern</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. "reusable bags" có nghĩa là túi có thể tái sử dụng, giúp bảo vệ môi trường.</div>
+            </div>
+
+            <div class="question" data-q="V5">
+                <p><strong>5. Choose the word closest in meaning to: <span style="text-decoration: underline;">purchase</span>.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V5" value="A"> A. buy</label>
+                    <label><input type="radio" name="V5" value="B"> B. lose</label>
+                    <label><input type="radio" name="V5" value="C"> C. sell</label>
+                    <label><input type="radio" name="V5" value="D"> D. borrow</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. Từ "purchase" đồng nghĩa với từ "buy" (mua sắm).</div>
+            </div>
+
+            <div class="question" data-q="V6">
+                <p><strong>6. Thomas Dambo creates giant sculptures from ______ materials.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V6" value="A"> A. recycled</label>
+                    <label><input type="radio" name="V6" value="B"> B. dangerous</label>
+                    <label><input type="radio" name="V6" value="C"> C. naturalized</label>
+                    <label><input type="radio" name="V6" value="D"> D. polluted</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. Theo bài đọc hoặc ngữ cảnh bảo vệ môi trường, anh ấy làm tượng từ "recycled materials" (vật liệu tái chế).</div>
+            </div>
+
+            <div class="question" data-q="V7">
+                <p><strong>7. Many young people are interested ______ smart homes.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V7" value="A"> A. at</label>
+                    <label><input type="radio" name="V7" value="B"> B. in</label>
+                    <label><input type="radio" name="V7" value="C"> C. on</label>
+                    <label><input type="radio" name="V7" value="D"> D. for</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Cấu trúc cố định luôn là "be interested in" (quan tâm, thích thú về cái gì).</div>
+            </div>
+
+            <div class="question" data-q="V8">
+                <p><strong>8. A good manager should ______ control of difficult situations.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V8" value="A"> A. make</label>
+                    <label><input type="radio" name="V8" value="B"> B. gain</label>
+                    <label><input type="radio" name="V8" value="C"> C. do</label>
+                    <label><input type="radio" name="V8" value="D"> D. bring</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Cụm từ kết hợp (collocation) đúng là "gain control of" (kiểm soát được tình hình).</div>
+            </div>
+
+            <div class="question" data-q="V9">
+                <p><strong>9. The opposite of <span style="text-decoration: underline;">harmful</span> is ______.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V9" value="A"> A. careful</label>
+                    <label><input type="radio" name="V9" value="B"> B. useful</label>
+                    <label><input type="radio" name="V9" value="C"> C. beneficial</label>
+                    <label><input type="radio" name="V9" value="D"> D. powerful</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. "harmful" có nghĩa là có hại, từ trái nghĩa phù hợp nhất là "beneficial" (có lợi).</div>
+            </div>
+
+            <div class="question" data-q="V10">
+                <p><strong>10. Which word is formed correctly?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V10" value="A"> A. develop → development</label>
+                    <label><input type="radio" name="V10" value="B"> B. develop → developion</label>
+                    <label><input type="radio" name="V10" value="C"> C. develop → developance</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. Danh từ của động từ "develop" được cấu tạo bằng cách thêm hậu tố "-ment" thành "development".</div>
+            </div>
+
+            <div class="question" data-q="V11">
+                <p><strong>11. The prefix <span style="text-decoration: underline;">re-</span> in <span style="font-style: italic;">rebuild</span> means:</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V11" value="A"> A. before</label>
+                    <label><input type="radio" name="V11" value="B"> B. not</label>
+                    <label><input type="radio" name="V11" value="C"> C. again</label>
+                    <label><input type="radio" name="V11" value="D"> D. together</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Tiền tố "re-" mang ý nghĩa là làm lại một lần nữa (again). Do đó "rebuild" là xây dựng lại.</div>
+            </div>
+
+            <div class="question" data-q="V12">
+                <p><strong>12. Which sentence is correct?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V12" value="A"> A. The museum is famous of modern art.</label>
+                    <label><input type="radio" name="V12" value="B"> B. The museum is famous with modern art.</label>
+                    <label><input type="radio" name="V12" value="C"> C. The museum is famous for modern art.</label>
+                    <label><input type="radio" name="V12" value="D"> D. The museum is famous at modern art.</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Cấu trúc tính từ đi kèm giới từ chính xác là "be famous for" (nổi tiếng vì cái gì).</div>
+            </div>
+
+            <div class="question" data-q="V13">
+                <p><strong>13. The singer used music to send an important ______ to young people.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V13" value="A"> A. message</label>
+                    <label><input type="radio" name="V13" value="B"> B. weather</label>
+                    <label><input type="radio" name="V13" value="C"> C. engineer</label>
+                    <label><input type="radio" name="V13" value="D"> D. material</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. "send an important message" nghĩa là gửi gắm một thông điệp quan trọng.</div>
+            </div>
+
+            <div class="question" data-q="V14">
+                <p><strong>14. Many factories are looking for environmentally friendly ______.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V14" value="A"> A. solutions</label>
+                    <label><input type="radio" name="V14" value="B"> B. campaigns</label>
+                    <label><input type="radio" name="V14" value="C"> C. forecasts</label>
+                    <label><input type="radio" name="V14" value="D"> D. audiences</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. Các nhà máy đang tìm kiếm các "environmentally friendly solutions" (giải pháp thân thiện với môi trường).</div>
+            </div>
+
+            <div class="question" data-q="V15">
+                <p><strong>15. A robot can help nurses carry heavy equipment because it is very ______.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="V15" value="A"> A. adaptable</label>
+                    <label><input type="radio" name="V15" value="B"> B. flooded</label>
+                    <label><input type="radio" name="V15" value="C"> C. careless</label>
+                    <label><input type="radio" name="V15" value="D"> D. polluted</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. "adaptable" mang nghĩa là có khả năng thích nghi cao / linh hoạt, phù hợp hỗ trợ công việc phức tạp.</div>
+            </div>
+        </div>
+
+        <!-- PART 3: GRAMMAR -->
+        <div class="part-section">
+            <h2 class="part-title">PART 3: GRAMMAR (Questions 16–30)</h2>
+            <p><em>Choose the correct grammatical form (A, B, C, or D).</em></p>
+
+            <div class="question" data-q="G1">
+                <p><strong>16. My sister ______ to university by bus every day.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G1" value="A"> A. go</label>
+                    <label><input type="radio" name="G1" value="B"> B. goes</label>
+                    <label><input type="radio" name="G1" value="C"> C. is going</label>
+                    <label><input type="radio" name="G1" value="D"> D. went</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Trạng ngữ chỉ tần suất "every day" dấu hiệu của thì Hiện tại đơn. Chủ ngữ "My sister" số ít nên động từ thêm -es thành "goes".</div>
+            </div>
+
+            <div class="question" data-q="G2">
+                <p><strong>17. Look! It ______ outside.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G2" value="A"> A. rains</label>
+                    <label><input type="radio" name="G2" value="B"> B. rained</label>
+                    <label><input type="radio" name="G2" value="C"> C. is raining</label>
+                    <label><input type="radio" name="G2" value="D"> D. rain</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Từ gây chú ý "Look!" báo hiệu một hành động đang xảy ra tại thời điểm nói → dùng thì Hiện tại tiếp diễn "is raining".</div>
+            </div>
+
+            <div class="question" data-q="G3">
+                <p><strong>18. We ______ our grandparents last weekend.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G3" value="A"> A. visit</label>
+                    <label><input type="radio" name="G3" value="B"> B. visits</label>
+                    <label><input type="radio" name="G3" value="C"> C. visited</label>
+                    <label><input type="radio" name="G3" value="D"> D. are visiting</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Trạng từ "last weekend" chỉ thời gian trong quá khứ → chia thì Quá khứ đơn "visited".</div>
+            </div>
+
+            <div class="question" data-q="G4">
+                <p><strong>19. I ______ this book already.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G4" value="A"> A. finish</label>
+                    <label><input type="radio" name="G4" value="B"> B. finished</label>
+                    <label><input type="radio" name="G4" value="C"> C. have finished</label>
+                    <label><input type="radio" name="G4" value="D"> D. finishing</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Trạng từ "already" là dấu hiệu đặc trưng của thì Hiện tại hoàn thành (Have/Has + V3/ed) → "have finished".</div>
+            </div>
+
+            <div class="question" data-q="G5">
+                <p><strong>20. There isn't ______ milk in the fridge.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G5" value="A"> A. many</label>
+                    <label><input type="radio" name="G5" value="B"> B. much</label>
+                    <label><input type="radio" name="G5" value="C"> C. a few</label>
+                    <label><input type="radio" name="G5" value="D"> D. several</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. "milk" là danh từ không đếm được và câu đang ở dạng phủ định "isn't" nên ta dùng "much".</div>
+            </div>
+
+            <div class="question" data-q="G6">
+                <p><strong>21. There are ______ students in the classroom today because many are absent.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G6" value="A"> A. much</label>
+                    <label><input type="radio" name="G6" value="B"> B. a little</label>
+                    <label><input type="radio" name="G6" value="C"> C. only a few</label>
+                    <label><input type="radio" name="G6" value="D"> D. any</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. "students" là danh từ đếm được số nhiều. Vế sau giải thích vì nhiều người vắng mặt nên dùng "only a few" (chỉ một vài).</div>
+            </div>
+
+            <div class="question" data-q="G7">
+                <p><strong>22. I enjoy ______ documentaries about nature.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G7" value="A"> A. watch</label>
+                    <label><input type="radio" name="G7" value="B"> B. watching</label>
+                    <label><input type="radio" name="G7" value="C"> C. to watching</label>
+                    <label><input type="radio" name="G7" value="D"> D. watched</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Theo quy tắc ngữ pháp, sau động từ "enjoy" luôn đi kèm với danh động từ V-ing → "watching".</div>
+            </div>
+
+            <div class="question" data-q="G8">
+                <p><strong>23. We decided ______ at home because of the storm.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G8" value="A"> A. stay</label>
+                    <label><input type="radio" name="G8" value="B"> B. staying</label>
+                    <label><input type="radio" name="G8" value="C"> C. to stay</label>
+                    <label><input type="radio" name="G8" value="D"> D. stayed</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Theo cấu trúc ngữ pháp, sau động từ "decide" luôn kết hợp với một động từ nguyên mẫu có "to" (to-infinitive) → "decide to stay".</div>
+            </div>
+
+            <div class="question" data-q="G9">
+                <p><strong>24. The apartment is small, ______ it is comfortable.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G9" value="A"> A. because</label>
+                    <label><input type="radio" name="G9" value="B"> B. but</label>
+                    <label><input type="radio" name="G9" value="C"> C. so</label>
+                    <label><input type="radio" name="G9" value="D"> D. or</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Hai vế của câu mang ý nghĩa tương phản (nhỏ nhưng thoải mái) nên ta dùng liên từ "but".</div>
+            </div>
+
+            <div class="question" data-q="G10">
+                <p><strong>25. My brother has a new laptop. ______ uses it every day.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G10" value="A"> A. He</label>
+                    <label><input type="radio" name="G10" value="B"> B. Him</label>
+                    <label><input type="radio" name="G10" value="C"> C. His</label>
+                    <label><input type="radio" name="G10" value="D"> D. Himself</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là A. Chỗ trống đứng ở đầu câu đóng vai trò làm chủ ngữ, thay thế cho danh từ nam giới "My brother" nên ta dùng đại từ chủ ngữ "He".</div>
+            </div>
+
+            <div class="question" data-q="G11">
+                <p><strong>26. The sky is very dark. It ______ rain soon.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G11" value="A"> A. should</label>
+                    <label><input type="radio" name="G11" value="B"> B. might</label>
+                    <label><input type="radio" name="G11" value="C"> C. mustn't</label>
+                    <label><input type="radio" name="G11" value="D"> D. can</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Diễn tả khả năng một sự việc có thể xảy ra trong tương lai dựa trên tình huống thực tế, ta sử dụng động từ khuyết thiếu "might".</div>
+            </div>
+
+            <div class="question" data-q="G12">
+                <p><strong>27. I think people ______ live in smarter homes in the future.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G12" value="A"> A. are going</label>
+                    <label><input type="radio" name="G12" value="B"> B. will</label>
+                    <label><input type="radio" name="G12" value="C"> C. were</label>
+                    <label><input type="radio" name="G12" value="D"> D. have</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Cụm từ "I think" kết hợp với mốc thời gian "in the future" dùng để đưa ra dự đoán không có căn cứ chắc chắn → dùng tương lai đơn "will".</div>
+            </div>
+
+            <div class="question" data-q="G13">
+                <p><strong>28. We ______ visit Da Lat next summer. We have already booked the hotel.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G13" value="A"> A. will</label>
+                    <label><input type="radio" name="G13" value="B"> B. are going to</label>
+                    <label><input type="radio" name="G13" value="C"> C. might</label>
+                    <label><input type="radio" name="G13" value="D"> D. should</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Câu sau có dẫn chứng kế hoạch rõ ràng "already booked the hotel" (đã đặt khách sạn trước) → sử dụng cấu trúc "be going to".</div>
+            </div>
+
+            <div class="question" data-q="G14">
+                <p><strong>29. Choose the correct sentence.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G14" value="A"> A. She don't like modern art.</label>
+                    <label><input type="radio" name="G14" value="B"> B. She doesn't likes modern art.</label>
+                    <label><input type="radio" name="G14" value="C"> C. She doesn't like modern art.</label>
+                    <label><input type="radio" name="G14" value="D"> D. She not like modern art.</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Ở thể phủ định của thì hiện tại đơn với chủ ngữ ngôi thứ ba số ít "She", ta mượn trợ động từ "doesn't" và động từ chính quay về nguyên mẫu "like".</div>
+            </div>
+
+            <div class="question" data-q="G15">
+                <p><strong>30. Choose the sentence with the correct grammar.</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="G15" value="A"> A. There are a lot of informations online.</label>
+                    <label><input type="radio" name="G15" value="B"> B. There is a lot of information online.</label>
+                    <label><input type="radio" name="G15" value="C"> C. There are many information online.</label>
+                    <label><input type="radio" name="G15" value="D"> D. There is many informations online.</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. "information" là một danh từ không đếm được nên không bao giờ thêm "s". Ta dùng "There is" kết hợp với cụm từ "a lot of".</div>
+            </div>
+        </div>
+
+        <!-- PART 4: READING COMPREHENSION -->
+        <div class="part-section">
+            <h2 class="part-title">PART 4: READING COMPREHENSION</h2>
+            
+            <h3>Reading Passage 1 — Supermarket Secrets</h3>
+            <div class="reading-box">
+                Have you ever noticed that milk and eggs are almost always at the back of the supermarket? This is not an accident. Supermarkets use many clever tricks to make shoppers spend more money than they planned. Once you know these tricks, you can become a smarter shopper.<br><br>
+                One of the most common tricks is placing everyday items like milk, bread, and eggs far from the entrance. When shoppers go to get these items, they have to walk through many aisles. Along the way, they often see other products and put extra things in their basket — things they did not plan to buy. This is exactly what the supermarket wants.<br><br>
+                Supermarkets also use music and lighting to influence shoppers. Bright lights in the fruit and vegetable section make the food look fresh, colourful, and attractive. Slow, relaxing music makes people walk more slowly and spend more time in the store. Research shows that supermarkets with slow background music can sell up to 38% more than stores with no music at all.<br><br>
+                Another trick is called 'charm pricing'. A product that costs $9.99 feels much cheaper than one that costs $10.00, even though the difference is only one cent. Shoppers often do not notice this small difference, but it has a big effect on how much they spend.<br><br>
+                Finally, supermarkets think carefully about where to place products on the shelves. The most expensive brands are always placed at eye level, where shoppers can see them easily. Cheaper products are put on the top or bottom shelves, where people are less likely to look. Children's snacks and toys are placed low on the shelves so that children can see them and ask their parents to buy them. By understanding these tricks, you can make smarter choices every time you go shopping.
+            </div>
+
+            <div class="question" data-q="R1">
+                <p><strong>31. Why are everyday items like milk placed at the back of the store?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R1" value="A"> A. To keep them cold</label>
+                    <label><input type="radio" name="R1" value="B"> B. To make shoppers walk past more products</label>
+                    <label><input type="radio" name="R1" value="C"> C. Because they are the cheapest items</label>
+                    <label><input type="radio" name="R1" value="D"> D. To keep them near the exit</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Đoạn 2 ghi rõ: đặt đồ thiết yếu ở cuối để khách hàng đi qua nhiều lối đi và thấy nhiều sản phẩm khác.</div>
+            </div>
+
+            <div class="question" data-q="R2">
+                <p><strong>32. What effect does slow background music have on shoppers?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R2" value="A"> A. They buy fewer products</label>
+                    <label><input type="radio" name="R2" value="B"> B. They leave the store quickly</label>
+                    <label><input type="radio" name="R2" value="C"> C. They walk more slowly and spend more time</label>
+                    <label><input type="radio" name="R2" value="D"> D. They choose cheaper products</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Trong đoạn 3 có nêu "Slow, relaxing music makes people walk more slowly and spend more time in the store."</div>
+            </div>
+
+            <div class="question" data-q="R3">
+                <p><strong>33. What is 'charm pricing'?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R3" value="A"> A. A discount for loyal customers</label>
+                    <label><input type="radio" name="R3" value="B"> B. Pricing items just below a round number</label>
+                    <label><input type="radio" name="R3" value="C"> C. A free gift with every purchase</label>
+                    <label><input type="radio" name="R3" value="D"> D. A special sale every weekend</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Đoạn 4 lấy ví dụ về việc đặt giá $9.99 thay vì số tròn $10.00 để tạo cảm giác rẻ hơn rất nhiều.</div>
+            </div>
+
+            <div class="question" data-q="R4">
+                <p><strong>34. Where are the MOST expensive products usually placed on the shelves?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R4" value="A"> A. On the bottom shelf</label>
+                    <label><input type="radio" name="R4" value="B"> B. Near the entrance</label>
+                    <label><input type="radio" name="R4" value="C"> C. At eye level</label>
+                    <label><input type="radio" name="R4" value="D"> D. At the checkout counter</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Đoạn cuối viết "The most expensive brands are always placed at eye level, where shoppers can see them easily."</div>
+            </div>
+
+            <div class="question" data-q="R5">
+                <p><strong>35. What is the best title for this passage?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R5" value="A"> A. How to Save Money at the Supermarket</label>
+                    <label><input type="radio" name="R5" value="B"> B. Why Supermarkets Use Music</label>
+                    <label><input type="radio" name="R5" value="C"> C. How Supermarkets Trick Shoppers into Spending More</label>
+                    <label><input type="radio" name="R5" value="D"> D. The History of Modern Supermarkets</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Ý chính toàn bài nói về những cái bẫy/mẹo mà siêu thị áp dụng để kích thích người mua chi tiêu nhiều tiền hơn.</div>
+            </div>
+
+            <p><em>Questions 36–40: True or False — Write T (True) or F (False)</em></p>
+            
+            <div class="question" data-q="R6">
+                <p>36. Supermarkets place everyday items near the entrance to help shoppers save time. <input type="text" name="R6" style="width:50px; text-align:center;"></p>
+                <div class="explanation">Sai rồi! Đáp án là F. Siêu thị đặt các món hàng thiết yếu ở xa lối vào (gần phía cuối) chứ không phải ngay lối vào.</div>
+            </div>
+            <div class="question" data-q="R7">
+                <p>37. Bright lights in the fruit section make food look more fresh and attractive. <input type="text" name="R7" style="width:50px; text-align:center;"></p>
+                <div class="explanation">Sai rồi! Đáp án là T. Điều này đúng với thông tin ở đoạn 3: "Bright lights in the fruit and vegetable section make the food look fresh...".</div>
+            </div>
+            <div class="question" data-q="R8">
+                <p>38. Stores with slow background music can sell up to 38% more than stores with no music. <input type="text" name="R8" style="width:50px; text-align:center;"></p>
+                <div class="explanation">Sai rồi! Đáp án là T. Khớp chính xác với số liệu nghiên cứu được đề cập ở cuối đoạn số 3 (sell up to 38% more).</div>
+            </div>
+            <div class="question" data-q="R9">
+                <p>39. Most shoppers immediately notice the difference between $9.99 and $10.00. <input type="text" name="R9" style="width:50px; text-align:center;"></p>
+                <div class="explanation">Sai rồi! Đáp án là F. Đoạn 4 nói rằng: "Shoppers often do not notice this small difference..." (Người mua thường không nhận ra sự khác biệt nhỏ này).</div>
+            </div>
+            <div class="question" data-q="R10">
+                <p>40. Cheaper products are usually placed at eye level so that shoppers can find them easily. <input type="text" name="R10" style="width:50px; text-align:center;"></p>
+                <div class="explanation">Sai rồi! Đáp án là F. Sản phẩm đắt nhất mới đặt ở ngang tầm mắt (eye level), sản phẩm rẻ hơn thì bị đặt ở kệ trên cùng hoặc dưới cùng.</div>
+            </div>
+
+            <hr>
+            <h3>Reading Passage 2 — Art for Everyone</h3>
+            <div class="reading-box">
+                When most people think of art, they think of paintings hanging in museums or sculptures inside expensive galleries. But public art is different. It is art that you can see and enjoy outside, in parks, on streets, or on the walls of buildings. You do not need a ticket or an appointment. Public art belongs to everyone.<br><br>
+                One well-known example of public art is the work of Jim Denevan, an American artist. Denevan is famous for making very large drawings in sand on beaches and in deserts. He uses only a long stick and his feet to create his patterns. His drawings are enormous — sometimes they are several kilometres wide and take him many days to finish. But his art does not last long. When the sea comes in, the waves wash the drawings away completely. Denevan says this is not a problem. For him, the temporary nature of his art makes it more beautiful and more meaningful.<br><br>
+                Another exciting example is the work of Thomas Dambo, a Danish artist who loves the environment. Dambo builds giant wooden figures called trolls and places them in forests and parks near cities. His trolls are sometimes five or six metres tall. What makes his work special is that he builds them entirely from recycled wood — old doors, broken furniture, and pieces of wood that other people throw away. Each troll also has a short folk story written near it, which encourages visitors to think about nature and the importance of looking after our planet.<br><br>
+                Both of these artists remind us that great art does not need to be in a museum, and it does not need to cost a lot of money. Sometimes the most powerful art is the kind that is free, unexpected, and open for everyone to enjoy.
+            </div>
+
+            <div class="question" data-q="R11">
+                <p><strong>41. What makes public art different from art in a museum?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R11" value="A"> A. It is always made from recycled materials</label>
+                    <label><input type="radio" name="R11" value="B"> B. It is free and anyone can see it</label>
+                    <label><input type="radio" name="R11" value="C"> C. It is always very large</label>
+                    <label><input type="radio" name="R11" value="D"> D. It is only found in parks</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Đoạn 1 có ghi: nghệ thuật công cộng bạn có thể ngắm ở ngoài đường, không cần vé và nó thuộc về tất cả mọi người (free and anyone can see it).</div>
+            </div>
+
+            <div class="question" data-q="R12">
+                <p><strong>42. What does Jim Denevan use to make his sand drawings?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R12" value="A"> A. Paint and canvas</label>
+                    <label><input type="radio" name="R12" value="B"> B. A computer program</label>
+                    <label><input type="radio" name="R12" value="C"> C. A long stick and his feet</label>
+                    <label><input type="radio" name="R12" value="D"> D. Recycled wood</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Đoạn 2 ghi rất rõ: "He uses only a long stick and his feet to create his patterns."</div>
+            </div>
+
+            <div class="question" data-q="R13">
+                <p><strong>43. Why does Jim Denevan's art disappear?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R13" value="A"> A. He removes it when it is finished</label>
+                    <label><input type="radio" name="R13" value="B"> B. The government takes it away</label>
+                    <label><input type="radio" name="R13" value="C"> C. The sea washes it away</label>
+                    <label><input type="radio" name="R13" value="D"> D. He sells it to collectors</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Nghệ thuật vẽ cát của ông biến mất do sóng biển đánh vào và xóa sạch chúng đi (The sea washes it away).</div>
+            </div>
+
+            <div class="question" data-q="R14">
+                <p><strong>44. What materials does Thomas Dambo use to build his trolls?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R14" value="A"> A. Stone and metal</label>
+                    <label><input type="radio" name="R14" value="B"> B. New, expensive wood</label>
+                    <label><input type="radio" name="R14" value="C"> C. Recycled wood from old objects</label>
+                    <label><input type="radio" name="R14" value="D"> D. Painted plastic and rope</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là C. Đoạn 3 nêu đặc trưng tác phẩm của Dambo là làm hoàn toàn từ gỗ tái chế (recycled wood) từ cửa cũ, bàn ghế hỏng,...</div>
+            </div>
+
+            <div class="question" data-q="R15">
+                <p><strong>45. What do both artists have in common?</strong></p>
+                <div class="options">
+                    <label><input type="radio" name="R15" value="A"> A. They only work on beaches</label>
+                    <label><input type="radio" name="R15" value="B"> B. They show that great art can be simple and free</label>
+                    <label><input type="radio" name="R15" value="C"> C. They build giant wooden figures</label>
+                    <label><input type="radio" name="R15" value="D"> D. They use computers to design their art</label>
+                </div>
+                <div class="explanation">Sai rồi! Đáp án đúng là B. Cả hai đều chứng minh nghệ thuật lớn lao không nhất thiết phải nằm trong bảo tàng hay tốn kém, mà có thể hoàn toàn miễn phí và dành cho mọi người.</div>
+            </div>
+
+            <p><em>Questions 46–50: Fill in the Blank — Use ONE word from the box to complete each sentence.</em></p>
+            <div class="word-bank">Word Bank: temporary | recycled | environment | patterns | folk</div>
+
+            <div class="question" data-q="R16">
+                <p>46. Jim Denevan uses a stick to draw large geometric <input type="text" name="R16" style="width:150px;"> on the sand.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "patterns" (hoa văn/họa tiết hình học).</div>
+            </div>
+            <div class="question" data-q="R17">
+                <p>47. His sand art is <input type="text" name="R17" style="width:150px;"> because the waves always wash it away.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "temporary" (mang tính tạm thời, không tồn tại lâu).</div>
+            </div>
+            <div class="question" data-q="R18">
+                <p>48. Thomas Dambo builds his trolls from <input type="text" name="R18" style="width:150px;"> wood — things other people throw away.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "recycled" (gỗ được tái chế).</div>
+            </div>
+            <div class="question" data-q="R19">
+                <p>49. Each troll has a short <input type="text" name="R19" style="width:150px;"> story written nearby for visitors to read.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "folk" (folk story: câu chuyện dân gian).</div>
+            </div>
+            <div class="question" data-q="R20">
+                <p>50. Dambo wants people to care about the <input type="text" name="R20" style="width:150px;"> and think about protecting nature.</p>
+                <div class="explanation">Sai rồi! Từ cần điền là "environment" (quan tâm tới môi trường).</div>
+            </div>
+        </div>
+
+        <!-- PART 5: WRITING -->
+        <div class="part-section">
+            <h2 class="part-title">PART 5: WRITING TASK (7.5 pts)</h2>
+            <p><strong>Instructions:</strong> Choose ONE prompt below. Write <strong>150–200 words</strong>. Your answer must have a topic sentence, supporting ideas, and a conclusion.</p>
+            
+            <table class="rubric-table">
+                <thead>
+                    <tr>
+                        <th>Criterion</th>
+                        <th>What is checked</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Content & Ideas</strong></td>
+                        <td>Clear, relevant ideas with examples or details</td>
+                        <td>3.0 pts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Organisation</strong></td>
+                        <td>Topic sentence + supporting ideas + conclusion</td>
+                        <td>2.0 pts</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grammar & Vocabulary</strong></td>
+                        <td>Correct grammar; good use of course vocabulary</td>
+                        <td>2.5 pts</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-bottom: 20px;">
+                <label>
+                    <input type="radio" name="writing_option" value="Option 1" checked onclick="togglePrompt(1)"> 
+                    <strong>✏️ OPTION 1 (Units 3 & 4)</strong>
+                </label>
+                <div id="prompt-opt1" class="prompt-box">
+                    <p>Think of an advertisement you have seen on TV, on your phone, or on the street. Describe the advertisement and explain why it is effective or not effective.</p>
+                    <strong>Write about:</strong>
+                    <ul>
+                        <li>What product or service the advertisement is for</li>
+                        <li>What colours, images, music, or words it uses</li>
+                        <li>Which persuasion technique it uses (e.g. celebrity, emotion, charm pricing, scarcity)</li>
+                        <li>Whether you think it makes people want to buy the product and why</li>
+                    </ul>
+                    <p style="margin-top: 5px;"><strong>Language tips:</strong> Use: <em>and / but / so</em> | <em>-ment / -tion nouns</em> | vocabulary from Units 3 & 4</p>
+                </div>
+
+                <label>
+                    <input type="radio" name="writing_option" value="Option 2" onclick="togglePrompt(2)"> 
+                    <strong>✏️ OPTION 2 (Units 6 & 8)</strong>
+                </label>
+                <div id="prompt-opt2" class="prompt-box" style="display:none; border-left: 4px solid #e2e8f0;">
+                    <p>Imagine your life in the year 2050. Describe what a typical day will look like for you in the future.</p>
+                    <strong>Write about:</strong>
+                    <ul>
+                        <li>Where you will live and what your home will look like</li>
+                        <li>How technology (e.g. robots, smart homes) will help you every day</li>
+                        <li>One thing about life in 2050 that you feel excited or uncertain about</li>
+                        <li>How your daily routine will be different from your life today</li>
+                    </ul>
+                    <p style="margin-top: 5px;"><strong>Language tips:</strong> Use: <em>will / be going to</em> | <em>might / could</em> | <em>and / but / or / so</em> | <em>-able adjectives</em> (e.g. adaptable, sustainable)</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; margin-bottom: 30px; padding: 20px; background-color: #fff5f5; border: 2px dashed #e74c3c; border-radius: 8px;">
+    <h3 style="color: #c0392b; margin-top: 0;">⚠️ HƯỚNG DẪN NỘP BÀI TỰ LUẬN:</h3>
+    <p style="font-size: 15px; color: #333; margin-bottom: 20px;">
+        Sinh viên xem kỹ 2 đề bài (Option 1 & Option 2) ở phía trên. Sau khi đã chọn được đề bài, hãy bấm vào nút màu đỏ dưới đây để mở trang điền thông tin và làm bài viết Writing riêng của Google Form.
+    </p>
+    
+    <a href="https://forms.gle/xxxxxxxxx" target="_blank" style="display: inline-block; padding: 16px 35px; background-color: #e74c3c; color: white; text-decoration: none; font-size: 18px; font-weight: bold; border-radius: 6px; box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3); transition: background 0.3s ease;">
+        📝 BẤM VÀO ĐÂY ĐỂ MỞ PHÒNG THI WRITING TASK
+    </a>
+    
+    <p style="font-size: 13px; color: #7f8c8d; margin-top: 15px;">
+        *(Lưu ý: Bài làm Trắc nghiệm phía trên nộp riêng bằng nút "NỘP BÀI THI" ở cuối trang web, bài Viết này nộp riêng trên Google Form).*
+    </p>
+</div>
+            <p style="font-size:13px; color:#666; margin-top: 5px;">* Note: This writing task will be graded manually by the instructor based on the criteria listed above.</p>
+        </div>
+
+        <button type="submit">NỘP BÀI THI</button>
+    </form>
+
+    <div id="result-area"></div>
+</div>
+
+<script>
+// Quản lý hiển thị Prompts cho phần chọn đề bài viết
+function togglePrompt(option) {
+    const p1 = document.getElementById('prompt-opt1');
+    const p2 = document.getElementById('prompt-opt2');
+    if(option === 1) {
+        p1.style.display = 'block';
+        p2.style.display = 'none';
+    } else {
+        p1.style.display = 'none';
+        p2.style.display = 'block';
+    }
+}
+
+// Đáp án chuẩn hóa sẵn cho Trắc nghiệm và Điền khuyết
+const answers = {
+    L1: "A", L2: "C", L3: "C", L4: "B", L5: "A",
+    L6: "talk", L7: "energy", L8: "walking", L9: "vegetables", L10: "hospital",
+    V1: "B", V2: "A", V3: "A", V4: "A", V5: "A", V6: "A", V7: "B", V8: "B", V9: "C", V10: "A", V11: "C", V12: "C", V13: "A", V14: "A", V15: "A",
+    G1: "B", G2: "C", G3: "C", G4: "C", G5: "B", G6: "C", G7: "B", G8: "C", G9: "B", G10: "A", G11: "B", G12: "B", G13: "B", G14: "C", G15: "B",
+    R1: "B", R2: "C", R3: "B", R4: "C", R5: "C",
+    R6: "F", R7: "T", R8: "T", R9: "F", R10: "F",
+    R11: "B", R12: "C", R13: "C", R14: "C", R15: "B",
+    R16: "patterns", R17: "temporary", R18: "recycled", R19: "folk", R20: "environment"
+};
+
+function submitExam(event) {
+    event.preventDefault();
+    
+    const studentName = document.getElementById('student-name').value.trim();
+    const studentId = document.getElementById('student-id').value.trim();
+    
+    if (!studentName || !studentId) {
+        alert("Vui lòng điền đầy đủ Họ tên và Mã số sinh viên trước khi nộp bài!");
+        return;
+    }
+
+    let scoreObj = { Part1: 0, Part2: 0, Part3: 0, Part4: 0 };
+    let totalCorrect = 0;
+
+    // Reset lại trạng thái các ô giải thích
+    const explanations = document.querySelectorAll('.explanation');
+    explanations.forEach(el => el.style.display = 'none');
+
+    // Tiến hành chấm điểm tự động
+    for (let key in answers) {
+        const questionDiv = document.querySelector(`[data-q="${key}"]`);
+        let studentAnswer = "";
+
+        const radioChecked = document.querySelector(`input[name="${key}"]:checked`);
+        const textInput = document.querySelector(`input[name="${key}"][type="text"]`);
+
+        if (radioChecked) {
+            studentAnswer = radioChecked.value;
+        } else if (textInput) {
+            studentAnswer = textInput.value.trim().toLowerCase();
+        }
+
+        let correctAnswer = answers[key].toLowerCase();
+        let isCorrect = (radioChecked && studentAnswer.toUpperCase() === answers[key]) || 
+                        (textInput && studentAnswer === correctAnswer);
+
+        if (isCorrect) {
+            if (key.startsWith('L')) scoreObj.Part1 += 1;
+            if (key.startsWith('V')) scoreObj.Part2 += 1;
+            if (key.startsWith('G')) scoreObj.Part3 += 1;
+            if (key.startsWith('R')) scoreObj.Part4 += 1;
+        } else {
+            if (questionDiv) {
+                const expDiv = questionDiv.querySelector('.explanation');
+                if (expDiv) expDiv.style.display = 'block';
+            }
+        }
+    }
+
+    totalCorrect = scoreObj.Part1 + scoreObj.Part2 + scoreObj.Part3 + scoreObj.Part4;
+    
+    let partA_Score = (scoreObj.Part2 + scoreObj.Part3) * 0.25; 
+    let partB_Score = (scoreObj.Part4) * 0.375; 
+    let listening_Score = (scoreObj.Part1); 
+
+    const resultArea = document.getElementById('result-area');
+    resultArea.style.display = 'block';
+    resultArea.style.background = '#d4edda';
+    resultArea.style.color = '#155724';
+    resultArea.style.border = '1px solid #c3e6cb';
+    
+    // Đọc option bài viết sinh viên đã chọn
+    const selectedOption = document.querySelector('input[name="writing_option"]:checked').value;
+    
+    resultArea.innerHTML = `
+        <h2>🎉 Kết quả bài làm của: ${studentName} (${studentId})</h2>
+        <p><strong>Số câu trả lời trắc nghiệm & điền khuyết đúng:</strong> ${totalCorrect} / 50 câu</p>
+        <ul>
+            <li><strong>Điểm Phần Từ vựng & Ngữ pháp (Part A):</strong> ${partA_Score.toFixed(2)} / 7.5 điểm</li>
+            <li><strong>Điểm Phần Đọc hiểu (Part B):</strong> ${partB_Score.toFixed(2)} / 7.5 điểm</li>
+            <li><strong>Số câu đúng phần Nghe (Part 1):</strong> ${listening_Score} / 10 câu đúng</li>
+            <li><strong>Đề bài tự luận đã chọn:</strong> ${selectedOption} (Đang chờ giáo viên chấm điểm bài viết)</li>
+        </ul>
+        <p>⚠️ <em>Lưu ý: Các câu trả lời sai đã được hệ thống hiển thị hộp thoại <strong>giải thích chi tiết bằng tiếng Việt</strong> ngay dưới câu hỏi đó. Hãy cuộn lên để xem lại!</em></p>
+    `;
+    
+    resultArea.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
